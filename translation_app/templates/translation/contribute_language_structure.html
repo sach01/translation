@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Contribute Language Structure{% endblock %}
+
+{% block content %}
+    <h1>Contribute Language Structure</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit Language Structure">
+    </form>
+{% endblock %}

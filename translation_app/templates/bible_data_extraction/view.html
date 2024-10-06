@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Parallel Text</title>
+</head>
+<body>
+    <h1>View Parallel Verses</h1>
+
+    <table border="1">
+        <tr>
+            <th>Book Title</th>
+            <th>Chapter</th>
+            <th>Verse Number</th>
+            <th>Borana Verse</th>
+            <th>English Verse</th>
+        </tr>
+        {% for parallel_verse in parallel_verses %}
+        <tr>
+            <td>{{ parallel_verse.borana_verse.chapter.book.title }}</td>
+            <td>{{ parallel_verse.borana_verse.chapter.chapter_number }}</td>
+            <td>{{ parallel_verse.borana_verse.verse_number }}</td>
+            <td>{{ parallel_verse.borana_verse.content }}</td>
+            <td>{{ parallel_verse.english_verse.content }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

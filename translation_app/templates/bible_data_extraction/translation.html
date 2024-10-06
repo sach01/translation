@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Parallel Text</title>
+</head>
+<body>
+    <h1>Upload Parallel Text</h1>
+    <form method="POST" action="/upload-parallel/">
+        <label>Book Title: </label>
+        <input type="text" name="book_title" value="Genesis" required><br><br>
+        
+        <label>Borana Text: </label><br>
+        <textarea name="borana_text" rows="10" cols="50" required></textarea><br><br>
+        
+        <label>English Text: </label><br>
+        <textarea name="english_text" rows="10" cols="50" required></textarea><br><br>
+        
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

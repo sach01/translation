@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Contribute Morphology{% endblock %}
+
+{% block content %}
+    <h1>Contribute Morphology</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit Morphology">
+    </form>
+{% endblock %}

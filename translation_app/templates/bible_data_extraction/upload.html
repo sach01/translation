@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Parallel Text</title>
+</head>
+<body>
+    <h1>Upload Parallel Text</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="borana_title">Borana Book Title:</label>
+            <input type="text" id="borana_title" name="borana_title" required>
+        </div>
+        <div>
+            <label for="english_title">English Book Title:</label>
+            <input type="text" id="english_title" name="english_title" required>
+        </div>
+        <div>
+            <label for="borana_text">Borana Text:</label>
+            <textarea id="borana_text" name="borana_text" rows="10" cols="50" required></textarea>
+        </div>
+        <div>
+            <label for="english_text">English Text:</label>
+            <textarea id="english_text" name="english_text" rows="10" cols="50" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+</body>
+</html>
