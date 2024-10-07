@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Contribute Sentence Alignment</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Existing Sentence Alignments</h2>
+  <ul>
+    {% for alignment in alignments %}
+      <li>{{ alignment.source_sentence }} -> {{ alignment.target_sentence }} (Score: {{ alignment.alignment_score }})</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

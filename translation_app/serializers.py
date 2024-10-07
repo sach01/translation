@@ -1,48 +1,71 @@
 from rest_framework import serializers
-from .models import Language, Book, Chapter, Verse, ParallelVerse
+from .models import (
+    Vocabulary, GrammarStructure, SentenceAlignment, RelatedWord,
+    Phrase, NamedEntity, Feedback, Morphology, TranslationMemory,
+    TrainingData, TranslationError, Moderation, Numbers
+)
 
-class VerseSerializer(serializers.ModelSerializer):
+class VocabularySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Verse
+        model = Vocabulary
         fields = '__all__'
 
-class ParallelVerseSerializer(serializers.ModelSerializer):
-    borana_content = serializers.CharField(write_only=True)
-    english_content = serializers.CharField(write_only=True)
-
+class GrammarStructureSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ParallelVerse
-        fields = ['borana_content', 'english_content']
+        model = GrammarStructure
+        fields = '__all__'
 
-    def create(self, validated_data):
-        # Fetch the respective languages
-        borana_language = Language.objects.get(name="Borana")
-        english_language = Language.objects.get(name="English")
+class SentenceAlignmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SentenceAlignment
+        fields = '__all__'
 
-        # Get or create books and chapters for both languages
-        borana_book, _ = Book.objects.get_or_create(title="Yohana", language=borana_language)
-        english_book, _ = Book.objects.get_or_create(title="John", language=english_language)
+class RelatedWordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RelatedWord
+        fields = '__all__'
 
-        # Get or create chapter (assuming chapter 1 for simplicity)
-        chapter_number = 1
-        borana_chapter, _ = Chapter.objects.get_or_create(book=borana_book, chapter_number=chapter_number)
-        english_chapter, _ = Chapter.objects.get_or_create(book=english_book, chapter_number=chapter_number)
+class PhraseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Phrase
+        fields = '__all__'
 
-        # Create verses for both Borana and English
-        borana_verse = Verse.objects.create(
-            chapter=borana_chapter,
-            verse_number=self.context['verse_number'],
-            content=validated_data['borana_content']
-        )
-        english_verse = Verse.objects.create(
-            chapter=english_chapter,
-            verse_number=self.context['verse_number'],
-            content=validated_data['english_content']
-        )
+class NamedEntitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NamedEntity
+        fields = '__all__'
 
-        # Create and return the parallel verse linking Borana and English
-        parallel_verse = ParallelVerse.objects.create(
-            borana_verse=borana_verse,
-            english_verse=english_verse
-        )
-        return parallel_verse
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+
+class MorphologySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Morphology
+        fields = '__all__'
+
+class TranslationMemorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TranslationMemory
+        fields = '__all__'
+
+class TrainingDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingData
+        fields = '__all__'
+
+class TranslationErrorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TranslationError
+        fields = '__all__'
+
+class ModerationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Moderation
+        fields = '__all__'
+
+class NumbersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Numbers
+        fields = '__all__'

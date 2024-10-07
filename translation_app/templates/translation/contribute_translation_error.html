@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Contribute Phrase</h1>
+  <h1>Contribute Translation Error</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-  <h2>Existing Phrases</h2>
+  <h2>Reported Translation Errors</h2>
   <ul>
-    {% for phrase in phrases %}
-      <li>{{ phrase.phrase }} -> {{ phrase.target_translation }}</li>
+    {% for error in errors %}
+      <li>{{ error.original_sentence }} -> Correction: {{ error.correction }}</li>
     {% endfor %}
   </ul>
 {% endblock %}

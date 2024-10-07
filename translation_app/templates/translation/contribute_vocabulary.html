@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Contribute Vocabulary{% endblock %}
-
 {% block content %}
-    <h1>Contribute Vocabulary</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit Vocabulary">
-    </form>
+  <h1>Contribute Vocabulary</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- This will render the form fields -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Existing Vocabulary</h2>
+  <ul>
+    {% for vocabulary in vocabularies %}
+      <li>{{ vocabulary.source_word }} - {{ vocabulary.target_word }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if messages %}
+    <h2>Messages</h2>
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
 {% endblock %}

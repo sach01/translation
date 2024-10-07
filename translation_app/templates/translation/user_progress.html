@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Your Progress</h1>
+  <ul>
+    <li>Points Earned: {{ progress.points_earned }}</li>
+    <li>Vocabulary Contributions: {{ progress.vocabulary_contributions }}</li>
+    <li>Feedback Provided: {{ progress.feedback_provided }}</li>
+    <li>Synonyms Added: {{ progress.synonyms_added }}</li>
+    <li>Antonyms Added: {{ progress.antonyms_added }}</li>
+    <li>Phrases Contributed: {{ progress.phrases_contributed }}</li>
+    <li>Named Entities Contributed: {{ progress.named_entities_contributed }}</li>
+    <li>Sentences Aligned: {{ progress.sentences_aligned }}</li>
+    <li>Grammar Structures Contributed: {{ progress.grammar_structures_contributed }}</li>
+    <li>Language Structures Contributed: {{ progress.language_structures_contributed }}</li>
+    <li>Translation Memory Contributions: {{ progress.translation_memory_contributions }}</li>
+    <li>Translation Errors Logged: {{ progress.translation_errors_logged }}</li>
+    <li>Morphology Contributions: {{ progress.morphology_contributed }}</li>
+    <li>Training Data Submitted: {{ progress.training_data_submitted }}</li>
+  </ul>
+{% endblock %}

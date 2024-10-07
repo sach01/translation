@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Contribute Phrase</h1>
+  <h1>Contribute Related Word (Synonym/Antonym)</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-  <h2>Existing Phrases</h2>
+  <h2>Existing Related Words</h2>
   <ul>
-    {% for phrase in phrases %}
-      <li>{{ phrase.phrase }} -> {{ phrase.target_translation }}</li>
+    {% for related_word in related_words %}
+      <li>{{ related_word.word }} ({{ related_word.relationship_type }})</li>
     {% endfor %}
   </ul>
 {% endblock %}

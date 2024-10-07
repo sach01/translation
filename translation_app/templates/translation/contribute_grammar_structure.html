@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
-
-{% block title %}Contribute Grammar Structure{% endblock %}
-
 {% block content %}
-    <h1>Contribute Grammar Structure</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit Grammar Structure">
-    </form>
+  <h1>Contribute Grammar Structure</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Existing Grammar Structures</h2>
+  <ul>
+    {% for grammar_structure in grammar_structures %}
+      <li>{{ grammar_structure.rule_name }}: {{ grammar_structure.source_sentence }} -> {{ grammar_structure.target_sentence }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

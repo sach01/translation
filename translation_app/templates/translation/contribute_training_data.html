@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Contribute Phrase</h1>
+  <h1>Contribute Training Data</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-  <h2>Existing Phrases</h2>
+  <h2>Existing Training Data</h2>
   <ul>
-    {% for phrase in phrases %}
-      <li>{{ phrase.phrase }} -> {{ phrase.target_translation }}</li>
+    {% for training_data in training_data_list %}
+      <li>{{ training_data.sentence }} -> {{ training_data.translation }}</li>
     {% endfor %}
   </ul>
 {% endblock %}

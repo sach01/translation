@@ -1,94 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Translation App{% endblock %}</title>
-    <style>
-        /* Dark theme styling */
-        body {
-            background-color: #1e1e1e;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-            color: white;
-        }
-
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        .footer {
-            background-color: #333;
-            text-align: center;
-            padding: 10px;
-            color: #fff;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Translation App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <a href="{% url 'contribute_vocabulary' %}">Vocabulary</a>
-        <a href="{% url 'submit_feedback' %}">Feedback</a>
-        <a href="{% url 'contribute_synonym' %}">Synonym</a>
-        <a href="{% url 'contribute_antonym' %}">Antonym</a>
-        <a href="{% url 'contribute_phrase' %}">Phrase</a>
-        <a href="{% url 'contribute_named_entity' %}">Named Entity</a>
-        <a href="{% url 'align_sentence' %}">Sentence Alignment</a>
-        <a href="{% url 'contribute_grammar_structure' %}">Grammar Structure</a>
-        <a href="{% url 'contribute_language_structure' %}">Language Structure</a>
-        <a href="{% url 'contribute_translation_memory' %}">Translation Memory</a>
-        <a href="{% url 'log_translation_error' %}">Translation Error</a>
-        <a href="{% url 'contribute_morphology' %}">Morphology</a>
-        <a href="{% url 'leaderboard' %}">Leaderboard</a>
-    </div>
-
     <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Translation App</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_vocabulary' %}">Contribute Vocabulary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_grammar_structure' %}">Contribute Grammar Structure</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_sentence_alignment' %}">Contribute Sentence Alignment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_related_word' %}">Contribute Related Word</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_phrase' %}">Contribute Phrase</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_named_entity' %}">Contribute Named Entity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_feedback' %}">Contribute Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_morphology' %}">Contribute Morphology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_translation_memory' %}">Contribute Translation Memory</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_training_data' %}">Contribute Training Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_translation_error' %}">Contribute Translation Error</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_number' %}">Contribute Number</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contribute_moderation' %}">Moderate Content</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'user_progress' %}">My Progress</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <div class="footer">
-        © 2024 Translation App. All rights reserved.
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </body>
 </html>

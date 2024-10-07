@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
-
-{% block title %}Contribute Translation Memory{% endblock %}
-
 {% block content %}
-    <h1>Contribute Translation Memory</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit Translation Memory">
-    </form>
+  <h1>Contribute Translation Memory</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Existing Translation Memory Entries</h2>
+  <ul>
+    {% for translation_memory in translation_memories %}
+      <li>{{ translation_memory.vocabulary.source_word }} -> {{ translation_memory.translation }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

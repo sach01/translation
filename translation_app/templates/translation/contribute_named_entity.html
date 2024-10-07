@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
-
-{% block title %}Contribute Named Entity{% endblock %}
-
 {% block content %}
-    <h1>Contribute Named Entity</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit Named Entity">
-    </form>
+  <h1>Contribute Named Entity</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Existing Named Entities</h2>
+  <ul>
+    {% for named_entity in named_entities %}
+      <li>{{ named_entity.name }} ({{ named_entity.entity_type }}) -> {{ named_entity.target_translation }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
