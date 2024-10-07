@@ -1,7 +1,7 @@
 # translation
 
-https://github.com/sach01/translation.git
-cd translation
+https://github.com/sach01/translation.git    .
+cd translation   .
 python3 -m venv env 
 source venv/bin/activate
 cd core
