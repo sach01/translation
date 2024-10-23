@@ -3,7 +3,7 @@
 
 ### 1. **Installation**
 ```bash
-https://github.com/sach01/translation.git <br>
+https://github.com/sach01/translation.git
 cd translation <br>
 python3 -m venv env <br>
 source venv/bin/activate  <br>
